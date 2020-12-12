@@ -43,12 +43,19 @@ function calcRoute() {
     directionsService.route(request, function (result, status) {
         if (status == google.maps.DirectionsStatus.OK) {
 
-            $(".info").html("<div class='alert alert-success'><strong>package_content</strong>  " + document.getElementById('package_content').value+
+            $(".info").html("<div class='alert alert-success'><strong>Blue Collar city</strong>  " + document.getElementById('city').value+
+                ".<br/><strong>Collection Date</strong>  "+ document.getElementById('collection_date').value + 
+
                 ".<br/><strong>From:</strong>  "+ document.getElementById('from').value + 
                 ".<br/><strong>To:</strong>  " + document.getElementById('to').value + 
+                ".<br/><strong>Weight of package:</strong>  "+ document.getElementById('package_weight').value + 
+                ".<br/><strong>No. of package:</strong>  "+ document.getElementById('package_num').value + 
                 ".<br/><strong>package_content</strong>  " + document.getElementById('package_content').value +
-
-                ".<br/><strong>package_content</strong>  " + document.getElementById('package_content').value + 
+                ".<br/><strong>Service Level:</strong>  "+ document.getElementById('service_level').value + 
+                ".<br/><strong>Value of goods for insurance:</strong>  "+ document.getElementById('insurance').value + 
+                ".<br/><strong>Name</strong>  " + document.getElementById('customer_name').value + 
+                ".<br/><strong>Email</strong>  " + document.getElementById('customer_email').value + 
+                ".<br/><strong>phone</strong>  " + document.getElementById('customer_phone').value + 
                 ".<br/><strong>Driving distance:</strong>  " + result.routes[0].legs[0].distance.text + 
                 ".<br/><strong>Duration:</strong>  " + result.routes[0].legs[0].duration.text + 
                 "</div>");
