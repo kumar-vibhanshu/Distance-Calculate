@@ -48,7 +48,7 @@ function calcRoute() {
 
             //Blue Collar City Base
             var basePrice;
-            var city = document.getElementById('city').selectedIndex;
+            var city = document.getElementById('city').value;
             if (city === 'Reno') {
                 basePrice = 275;
                 console.log(basePrice);
