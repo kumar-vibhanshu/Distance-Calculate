@@ -47,73 +47,116 @@ function calcRoute() {
             
             //Base price (Collar city / Service Level)
             var basePrice;
+            var mileage_credit;
             var city = document.getElementById('city').value;
             var service_level = document.getElementById('service_level').value;
             if (city === 'Reno') {
                 if(service_level === 'Same Day'){
                     basePrice = "18";
                     console.log(basePrice);
+
+                    mileage_credit = "8" * "1.20";
+                    console.log(mileage_credit);
                 }else if(service_level === 'Rush'){
                     basePrice = "25";
                     console.log(basePrice);
+
+                    mileage_credit = "8" * "1.75";
+                    console.log(mileage_credit);
                 }else if(service_level === 'Next Day'){
                     basePrice = "15";
                     console.log(basePrice);
+
+                    mileage_credit = "8" * "1";
+                    console.log(mileage_credit);
                 } 
             } else if (city === 'Palm Springs') {
                 if(service_level === 'Same Day'){
                     basePrice = "20";
                     console.log(basePrice);
+
+                    mileage_credit = "8" * "1.20";
+                    console.log(mileage_credit);
                 }else if(service_level === 'Rush'){
                     basePrice = "30";
                     console.log(basePrice);
+
+                    mileage_credit = "8" * "1.75";
+                    console.log(mileage_credit);
                 }else if(service_level === 'Next Day'){
                     basePrice = "17";
                     console.log(basePrice);
+
+                    mileage_credit = "8" * "1";
+                    console.log(mileage_credit);
                 }
             } else if (city === 'San Luisobispo') {
                 if(service_level === 'Same Day'){
                     basePrice = "20";
                     console.log(basePrice);
+                    mileage_credit = "8" * "1.20";
+                    console.log(mileage_credit);
                 }else if(service_level === 'Rush'){
                     basePrice = "35";
                     console.log(basePrice);
+                    mileage_credit = "8" * "1.75";
+                    console.log(mileage_credit);
                 }else if(service_level === 'Next Day'){
                     basePrice = "16";
                     console.log(basePrice);
+                    mileage_credit = "8" * "1";
+                    console.log(mileage_credit);
                 }
             } else if (city === 'Fresno') {
                 if(service_level === 'Same Day'){
                     basePrice = "20";
                     console.log(basePrice);
+                    mileage_credit = "8" * "1.20";
+                    console.log(mileage_credit);
                 }else if(service_level === 'Rush'){
                     basePrice = "30";
                     console.log(basePrice);
+                    mileage_credit = "8" * "1.75";
+                    console.log(mileage_credit);
                 }else if(service_level === 'Next Day'){
                     basePrice = "16";
                     console.log(basePrice);
+                    mileage_credit = "8" * "1";
+                    console.log(mileage_credit);
                 }
             }else if (city === 'Grand Junction') {
                 if(service_level === 'Same Day'){
                     basePrice = "20";
                     console.log(basePrice);
+                    mileage_credit = "8" * "1.20";
+                    console.log(mileage_credit);
                 }else if(service_level === 'Rush'){
                     basePrice = "35";
                     console.log(basePrice);
+                    mileage_credit = "8" * "1.75";
+                    console.log(mileage_credit);
                 }else if(service_level === 'Next Day'){
                     basePrice = "16";
                     console.log(basePrice);
+                    mileage_credit = "8" * "1";
+                    console.log(mileage_credit);
                 }
             }else if (city === 'Aspen') {
                 if(service_level === 'Same Day'){
                     basePrice = "20";
                     console.log(basePrice);
+                    mileage_credit = "8" * "1.20";
+                    console.log(mileage_credit);
                 }else if(service_level === 'Rush'){
                     basePrice = "40";
                     console.log(basePrice);
+                    mileage_credit = "8" * "1.75";
+                    console.log(mileage_credit);
                 }else if(service_level === 'Next Day'){
                     basePrice = "20";
                     console.log(basePrice);
+                    mileage_credit = "8" * "1";
+                    console.log(mileage_credit);
                 }
             };
 
@@ -163,8 +206,15 @@ function calcRoute() {
             };
 
             var distance = result.routes[0].legs[0].distance;
-            var total_fair = ((insurance_cost*"1") + (basePrice*"1"));
+            var total_fair = ((basePrice*"1") + (weight_cost*"1") + (package_extra_cost*"1"));
             console.log(total_fair);
+
+            var subtotal = ((basePrice*"1") + (weight_cost*"1") + (package_extra_cost*"1") + (insurance_cost*"1"));
+            console.log(subtotal);
+
+            var grand_total = ((basePrice*"1") + (weight_cost*"1") + (package_extra_cost*"1") + (insurance_cost*"1"));
+            console.log(grand_total);
+
             $(".info").html("<div class='alert alert-success row'><strong>Blue Collar city</strong>  " + document.getElementById('city').value+
                 ".<br/><strong>Collection Date & Time</strong>  "+ document.getElementById('collection_date').value +"&nbsp;" + document.getElementById('collection_time').value + 
 
@@ -189,9 +239,9 @@ function calcRoute() {
 
                 ".<br<br/><hr/><strong>Total:</strong>  $" + total_fair + 
                 ".<br/><strong>Insurance Cost:</strong>  $" + insurance_cost + 
-                ".<br/><strong>Sub Total:</strong>  $" + insurance_cost + 
-                ".<br/><strong>Mileage Credit:</strong>  $" + insurance_cost + 
-                ".<br/><strong>Grand Total:</strong>  $" + insurance_cost + 
+                ".<br/><strong>Sub Total:</strong>  $" + subtotal + 
+                ".<br/><strong>Mileage Credit:</strong>  $" + mileage_credit + 
+                ".<br/><strong>Grand Total:</strong>  $" + grand_total + 
                 "</div>");
 
             directionsDisplay.setDirections(result);
