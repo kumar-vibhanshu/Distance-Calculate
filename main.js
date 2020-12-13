@@ -127,7 +127,7 @@ function calcRoute() {
             }else{
                 weight_cost = package_weight * "0.25" - "5";
                 console.log(weight_cost);
-            }
+            };
 
             //Package Extra cost
             var package_extra_cost;
@@ -139,7 +139,7 @@ function calcRoute() {
             }else{
                 package_extra_cost = package_num * "10" - "20";
                 console.log(package_extra_cost);
-            }
+            };
 
             //Insurance cost
             var insurance_cost;
@@ -160,10 +160,11 @@ function calcRoute() {
             }else if(insurance === "$1501 to $3000"){
                 insurance_cost = "30";
                 console.log(insurance_cost);
-            }
+            };
 
             var distance = result.routes[0].legs[0].distance;
-            var total_fair = distance*10;
+            var total_fair = ((insurance_cost*"1") + (basePrice*"1"));
+            console.log(total_fair);
             $(".info").html("<div class='alert alert-success row'><strong>Blue Collar city</strong>  " + document.getElementById('city').value+
                 ".<br/><strong>Collection Date & Time</strong>  "+ document.getElementById('collection_date').value +"&nbsp;" + document.getElementById('collection_time').value + 
 
@@ -177,11 +178,20 @@ function calcRoute() {
                 ".<br/><strong>Name</strong>  " + document.getElementById('customer_name').value + 
                 ".<br/><strong>Email</strong>  " + document.getElementById('customer_email').value + 
                 ".<br/><strong>phone</strong>  " + document.getElementById('customer_phone').value + 
-                ".<br/><strong>Driving distance:</strong>  " + distance.text + 
-                ".<br/><strong>Base Cost:</strong>  " + basePrice +
-                ".<br/><strong>Weight Cost:</strong>  " + weight_cost + 
-                ".<br/><strong>Package Extra Cost:</strong>  " + package_extra_cost + 
-                ".<br/><strong>Insurance Cost:</strong>  " + insurance_cost + 
+                
+
+                ".<br/><br/><hr><strong>Base Cost:</strong>  $" + basePrice +
+                ".<br/><strong>Weight Cost:</strong>  $" + weight_cost + 
+                ".<br/><strong>Package Extra Cost:</strong>  $" + package_extra_cost + 
+
+
+                ".<br/><br/><hr><strong>Driving distance:</strong>  " + distance.text + 
+
+                ".<br<br/><hr/><strong>Total:</strong>  $" + total_fair + 
+                ".<br/><strong>Insurance Cost:</strong>  $" + insurance_cost + 
+                ".<br/><strong>Sub Total:</strong>  $" + insurance_cost + 
+                ".<br/><strong>Mileage Credit:</strong>  $" + insurance_cost + 
+                ".<br/><strong>Grand Total:</strong>  $" + insurance_cost + 
                 "</div>");
 
             directionsDisplay.setDirections(result);
