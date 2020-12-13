@@ -129,16 +129,37 @@ function calcRoute() {
                 console.log(weight_cost);
             }
 
-            //Insurance cost
-            var weight_cost;
-            var package_weight = document.getElementById('package_weight').value;
+            //Package Extra cost
+            var package_extra_cost;
+            var package_num = document.getElementById('package_num').value;
             
-            if(package_weight<="20"){
-                weight_cost = "0";
-                console.log(weight_cost);
+            if(package_num<="2"){
+                package_extra_cost = "0";
+                console.log(package_extra_cost);
             }else{
-                weight_cost = package_weight * "0.25" - "5";
-                console.log(weight_cost);
+                package_extra_cost = package_num * "10" - "20";
+                console.log(package_extra_cost);
+            }
+
+            //Insurance cost
+            var insurance_cost;
+            var insurance = document.getElementById('insurance').value;
+            
+            if(insurance === "$0 to $200"){
+                insurance_cost = "Included";
+                console.log(insurance_cost);
+            }else if(insurance === "$201 to $400"){
+                insurance_cost = "5";
+                console.log(insurance_cost);
+            }else if(insurance === "$401 to $800"){
+                insurance_cost = "10";
+                console.log(insurance_cost);
+            }else if(insurance === "$801 to $1500"){
+                insurance_cost = "20";
+                console.log(insurance_cost);
+            }else if(insurance === "$1501 to $3000"){
+                insurance_cost = "30";
+                console.log(insurance_cost);
             }
 
             var distance = result.routes[0].legs[0].distance;
@@ -159,6 +180,8 @@ function calcRoute() {
                 ".<br/><strong>Driving distance:</strong>  " + distance.text + 
                 ".<br/><strong>Base Cost:</strong>  " + basePrice +
                 ".<br/><strong>Weight Cost:</strong>  " + weight_cost + 
+                ".<br/><strong>Package Extra Cost:</strong>  " + package_extra_cost + 
+                ".<br/><strong>Insurance Cost:</strong>  " + insurance_cost + 
                 "</div>");
 
             directionsDisplay.setDirections(result);
