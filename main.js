@@ -83,7 +83,7 @@ function calcRoute() {
                 ".<br/><strong>Email</strong>  " + document.getElementById('customer_email').value + 
                 ".<br/><strong>phone</strong>  " + document.getElementById('customer_phone').value + 
                 ".<br/><strong>Driving distance:</strong>  " + distance.text + 
-                ".<br/><strong>Base Cost:</strong>  " + basePrice.text + 
+                ".<br/><strong>Base Cost:</strong>  " + basePrice + 
                 "</div>");
 
             directionsDisplay.setDirections(result);
