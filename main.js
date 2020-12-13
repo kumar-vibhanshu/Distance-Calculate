@@ -51,16 +51,16 @@ function calcRoute() {
             var city = document.getElementById('city').selectedIndex;
             var service_level = document.getElementById('service_level').selectedIndex;
             if (city === 'Reno') {
-                if(service_level === 'Same Day'){
-                    basePrice = 18;
-                    console.log(basePrice);
-                }else if(service_level === 'Rush'){
-                    basePrice = 25;
-                    console.log(basePrice);
-                }else if(service_level === 'Next Day'){
+                // if(service_level === 'Same Day'){
+                //     basePrice = 18;
+                //     console.log(basePrice);
+                // }else if(service_level === 'Rush'){
+                //     basePrice = 25;
+                //     console.log(basePrice);
+                // }else if(service_level === 'Next Day'){
                     basePrice = 15;
                     console.log(basePrice);
-                }
+                // }
                 
             } else if (city === 'Palm Springs') {
                 basePrice = 325;
