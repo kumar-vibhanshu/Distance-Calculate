@@ -45,8 +45,13 @@ function calcRoute() {
     directionsService.route(request, function (result, status) {
         if (status == google.maps.DirectionsStatus.OK) {
             
+            var distance = result.routes[0].legs[0].distance;
+            
+
+
             //Base price (Collar city / Service Level)
             var basePrice;
+            var distancecost;
             var mileage_credit;
             var city = document.getElementById('city').value;
             var service_level = document.getElementById('service_level').value;
@@ -54,19 +59,19 @@ function calcRoute() {
                 if(service_level === 'Same Day'){
                     basePrice = "18";
                     console.log(basePrice);
-
+                    distancecost = (distance.text.replace(/\D/g,'')) * "1.20";
                     mileage_credit = "8" * "1.20";
                     console.log(mileage_credit);
                 }else if(service_level === 'Rush'){
                     basePrice = "25";
                     console.log(basePrice);
-
+                    distancecost = (distance.text.replace(/\D/g,'')) * "1.75";
                     mileage_credit = "8" * "1.75";
                     console.log(mileage_credit);
                 }else if(service_level === 'Next Day'){
                     basePrice = "15";
                     console.log(basePrice);
-
+                    distancecost = (distance.text.replace(/\D/g,'')) * "1";
                     mileage_credit = "8" * "1";
                     console.log(mileage_credit);
                 } 
@@ -74,19 +79,19 @@ function calcRoute() {
                 if(service_level === 'Same Day'){
                     basePrice = "20";
                     console.log(basePrice);
-
+                    distancecost = (distance.text.replace(/\D/g,'')) * "1.20";
                     mileage_credit = "8" * "1.20";
                     console.log(mileage_credit);
                 }else if(service_level === 'Rush'){
                     basePrice = "30";
                     console.log(basePrice);
-
+                    distancecost = (distance.text.replace(/\D/g,'')) * "1.75";
                     mileage_credit = "8" * "1.75";
                     console.log(mileage_credit);
                 }else if(service_level === 'Next Day'){
                     basePrice = "17";
                     console.log(basePrice);
-
+                    distancecost = (distance.text.replace(/\D/g,'')) * "1";
                     mileage_credit = "8" * "1";
                     console.log(mileage_credit);
                 }
@@ -94,16 +99,19 @@ function calcRoute() {
                 if(service_level === 'Same Day'){
                     basePrice = "20";
                     console.log(basePrice);
+                    distancecost = (distance.text.replace(/\D/g,'')) * "1.20";
                     mileage_credit = "8" * "1.20";
                     console.log(mileage_credit);
                 }else if(service_level === 'Rush'){
                     basePrice = "35";
                     console.log(basePrice);
+                    distancecost = (distance.text.replace(/\D/g,'')) * "1.75";
                     mileage_credit = "8" * "1.75";
                     console.log(mileage_credit);
                 }else if(service_level === 'Next Day'){
                     basePrice = "16";
                     console.log(basePrice);
+                    distancecost = (distance.text.replace(/\D/g,'')) * "1";
                     mileage_credit = "8" * "1";
                     console.log(mileage_credit);
                 }
@@ -111,16 +119,19 @@ function calcRoute() {
                 if(service_level === 'Same Day'){
                     basePrice = "20";
                     console.log(basePrice);
+                    distancecost = (distance.text.replace(/\D/g,'')) * "1.20";
                     mileage_credit = "8" * "1.20";
                     console.log(mileage_credit);
                 }else if(service_level === 'Rush'){
                     basePrice = "30";
                     console.log(basePrice);
+                    distancecost = (distance.text.replace(/\D/g,'')) * "1.75";
                     mileage_credit = "8" * "1.75";
                     console.log(mileage_credit);
                 }else if(service_level === 'Next Day'){
                     basePrice = "16";
                     console.log(basePrice);
+                    distancecost = (distance.text.replace(/\D/g,'')) * "1";
                     mileage_credit = "8" * "1";
                     console.log(mileage_credit);
                 }
@@ -128,16 +139,19 @@ function calcRoute() {
                 if(service_level === 'Same Day'){
                     basePrice = "20";
                     console.log(basePrice);
+                    distancecost = (distance.text.replace(/\D/g,'')) * "1.20";
                     mileage_credit = "8" * "1.20";
                     console.log(mileage_credit);
                 }else if(service_level === 'Rush'){
                     basePrice = "35";
                     console.log(basePrice);
+                    distancecost = (distance.text.replace(/\D/g,'')) * "1.75";
                     mileage_credit = "8" * "1.75";
                     console.log(mileage_credit);
                 }else if(service_level === 'Next Day'){
                     basePrice = "16";
                     console.log(basePrice);
+                    distancecost = (distance.text.replace(/\D/g,'')) * "1";
                     mileage_credit = "8" * "1";
                     console.log(mileage_credit);
                 }
@@ -145,16 +159,19 @@ function calcRoute() {
                 if(service_level === 'Same Day'){
                     basePrice = "20";
                     console.log(basePrice);
+                    distancecost = (distance.text.replace(/\D/g,'')) * "1.20";
                     mileage_credit = "8" * "1.20";
                     console.log(mileage_credit);
                 }else if(service_level === 'Rush'){
                     basePrice = "40";
                     console.log(basePrice);
+                    distancecost = (distance.text.replace(/\D/g,'')) * "1.75";
                     mileage_credit = "8" * "1.75";
                     console.log(mileage_credit);
                 }else if(service_level === 'Next Day'){
                     basePrice = "20";
                     console.log(basePrice);
+                    distancecost = (distance.text.replace(/\D/g,'')) * "1";
                     mileage_credit = "8" * "1";
                     console.log(mileage_credit);
                 }
@@ -205,15 +222,13 @@ function calcRoute() {
                 console.log(insurance_cost);
             };
 
-            var distance = result.routes[0].legs[0].distance;
-            var distancecost = (distance.text.replace(/\D/g,'')) * "2";
-            var total_fair = ((basePrice*"1") + (weight_cost*"1") + (package_extra_cost*"1"));
+            var total_fair = ((basePrice*"1") + (weight_cost*"1") + (package_extra_cost*"1") + (distancecost*"1"));
             console.log(total_fair);
 
-            var subtotal = ((basePrice*"1") + (weight_cost*"1") + (package_extra_cost*"1") + (insurance_cost*"1"));
+            var subtotal = ((basePrice*"1") + (weight_cost*"1") + (package_extra_cost*"1") + (distancecost*"1") + (insurance_cost*"1"));
             console.log(subtotal);
 
-            var grand_total = ((basePrice*"1") + (weight_cost*"1") + (package_extra_cost*"1") + (insurance_cost*"1") - (mileage_credit*"1"));
+            var grand_total = ((basePrice*"1") + (weight_cost*"1") + (package_extra_cost*"1") + (distancecost*"1") + (insurance_cost*"1") - (mileage_credit*"1"));
             console.log(grand_total);
 
             $(".info").html("<div class='alert alert-success row'><strong>Blue Collar city</strong>  " + document.getElementById('city').value+
@@ -236,8 +251,8 @@ function calcRoute() {
                 ".<br/><strong>Package Extra Cost:</strong>  $" + package_extra_cost + 
 
 
-                ".<br/><br/><hr><strong>Driving distance:</strong>  " + distance.text + 
-                ".<br/><br/><hr><strong>Driving distance:</strong>  " + distancecost + 
+                ".<br/><br/><hr><strong>Distance:</strong>  " + distance.text + 
+                ".<br/><strong>Distance Cost:</strong>  $" + distancecost + 
 
 
                 ".<br<br/><hr/><strong>Total:</strong>  $" + total_fair + 
