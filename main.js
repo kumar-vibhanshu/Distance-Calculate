@@ -49,7 +49,7 @@ function calcRoute() {
             //Blue Collar City Base
             var basePrice;
             var city = document.getElementById('city').selectedIndex;
-            var service_level = document.getElementById('service_level').selectedIndex;
+            // var service_level = document.getElementById('service_level').selectedIndex;
             if (city === 'Reno') {
                 // if(service_level === 'Same Day'){
                 //     basePrice = 18;
@@ -64,19 +64,19 @@ function calcRoute() {
                 
             } else if (city === 'Palm Springs') {
                 basePrice = 325;
-                console.log(basePrice);
+                // console.log(basePrice);
             } else if (city === 'San Luisobispo') {
                 basePrice = 450;
-                console.log(basePrice);
+                // console.log(basePrice);
             } else if (city === 'Fresno') {
                 basePrice = 650;
-                console.log(basePrice);
+                // console.log(basePrice);
             }else if (city === 'Grand Junction') {
                 basePrice = 650;
-                console.log(basePrice);
+                // console.log(basePrice);
             }else if (city === 'Aspen') {
                 basePrice = 650;
-                console.log(basePrice);
+                // console.log(basePrice);
             }
 
             var distance = result.routes[0].legs[0].distance;
