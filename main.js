@@ -60,20 +60,60 @@ function calcRoute() {
                     console.log(basePrice);
                 } 
             } else if (city === 'Palm Springs') {
-                basePrice = 325;
-                console.log(basePrice);
+                if(service_level === 'Same Day'){
+                    basePrice = "20";
+                    console.log(basePrice);
+                }else if(service_level === 'Rush'){
+                    basePrice = "30";
+                    console.log(basePrice);
+                }else if(service_level === 'Next Day'){
+                    basePrice = "17";
+                    console.log(basePrice);
+                }
             } else if (city === 'San Luisobispo') {
-                basePrice = 450;
-                console.log(basePrice);
+                if(service_level === 'Same Day'){
+                    basePrice = "20";
+                    console.log(basePrice);
+                }else if(service_level === 'Rush'){
+                    basePrice = "35";
+                    console.log(basePrice);
+                }else if(service_level === 'Next Day'){
+                    basePrice = "16";
+                    console.log(basePrice);
+                }
             } else if (city === 'Fresno') {
-                basePrice = 650;
-                console.log(basePrice);
+                if(service_level === 'Same Day'){
+                    basePrice = "20";
+                    console.log(basePrice);
+                }else if(service_level === 'Rush'){
+                    basePrice = "30";
+                    console.log(basePrice);
+                }else if(service_level === 'Next Day'){
+                    basePrice = "16";
+                    console.log(basePrice);
+                }
             }else if (city === 'Grand Junction') {
-                basePrice = 650;
-                console.log(basePrice);
+                if(service_level === 'Same Day'){
+                    basePrice = "20";
+                    console.log(basePrice);
+                }else if(service_level === 'Rush'){
+                    basePrice = "35";
+                    console.log(basePrice);
+                }else if(service_level === 'Next Day'){
+                    basePrice = "16";
+                    console.log(basePrice);
+                }
             }else if (city === 'Aspen') {
-                basePrice = 650;
-                console.log(basePrice);
+                if(service_level === 'Same Day'){
+                    basePrice = "20";
+                    console.log(basePrice);
+                }else if(service_level === 'Rush'){
+                    basePrice = "40";
+                    console.log(basePrice);
+                }else if(service_level === 'Next Day'){
+                    basePrice = "20";
+                    console.log(basePrice);
+                }
             };
 
             var distance = result.routes[0].legs[0].distance;
