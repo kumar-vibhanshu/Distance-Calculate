@@ -44,6 +44,27 @@ function calcRoute() {
 
     directionsService.route(request, function (result, status) {
         if (status == google.maps.DirectionsStatus.OK) {
+
+            if (city === 'Reno') {
+                basePrice = 275;
+                console.log(basePrice);
+            } else if (city === 'Palm Springs') {
+                basePrice = 325;
+                console.log(basePrice);
+            } else if (city === 'San Luisobispo') {
+                basePrice = 450;
+                console.log(basePrice);
+            } else if (city === 'Fresno') {
+                basePrice = 650;
+                console.log(basePrice);
+            }else if (city === 'Grand Junction') {
+                basePrice = 650;
+                console.log(basePrice);
+            }else if (city === 'Aspen') {
+                basePrice = 650;
+                console.log(basePrice);
+            };
+
             var distance = result.routes[0].legs[0].distance;
             var total_fair = distance*10;
             $(".info").html("<div class='alert alert-success row'><strong>Blue Collar city</strong>  " + document.getElementById('city').value+
@@ -60,7 +81,7 @@ function calcRoute() {
                 ".<br/><strong>Email</strong>  " + document.getElementById('customer_email').value + 
                 ".<br/><strong>phone</strong>  " + document.getElementById('customer_phone').value + 
                 ".<br/><strong>Driving distance:</strong>  " + distance.text + 
-                ".<br/><strong>Total Cost:</strong>  " + distance.text + 
+                ".<br/><strong>Base Cost:</strong>  " + basePrice.text + 
                 "</div>");
 
             directionsDisplay.setDirections(result);
