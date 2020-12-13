@@ -206,9 +206,7 @@ function calcRoute() {
             };
 
             var distance = result.routes[0].legs[0].distance;
-
-            var distancecost = distance;
-            
+            var distancecost = (distance.text.replace(/\D/g,'')) * "2";
             var total_fair = ((basePrice*"1") + (weight_cost*"1") + (package_extra_cost*"1"));
             console.log(total_fair);
 
@@ -239,7 +237,7 @@ function calcRoute() {
 
 
                 ".<br/><br/><hr><strong>Driving distance:</strong>  " + distance.text + 
-                ".<br/><br/><hr><strong>Driving distance:</strong>  " + distancecost.text + 
+                ".<br/><br/><hr><strong>Driving distance:</strong>  " + distancecost + 
 
 
                 ".<br<br/><hr/><strong>Total:</strong>  $" + total_fair + 
