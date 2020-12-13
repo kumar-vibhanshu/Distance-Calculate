@@ -45,6 +45,7 @@ function calcRoute() {
     directionsService.route(request, function (result, status) {
         if (status == google.maps.DirectionsStatus.OK) {
             
+            //Base price (Collar city / Service Level)
             var basePrice;
             var city = document.getElementById('city').value;
             var service_level = document.getElementById('service_level').value;
@@ -116,6 +117,30 @@ function calcRoute() {
                 }
             };
 
+            //Weight cost
+            var weight_cost;
+            var package_weight = document.getElementById('package_weight').value;
+            
+            if(package_weight<="20"){
+                weight_cost = "0";
+                console.log(weight_cost);
+            }else{
+                weight_cost = package_weight * "0.25" - "5";
+                console.log(weight_cost);
+            }
+
+            //Insurance cost
+            var weight_cost;
+            var package_weight = document.getElementById('package_weight').value;
+            
+            if(package_weight<="20"){
+                weight_cost = "0";
+                console.log(weight_cost);
+            }else{
+                weight_cost = package_weight * "0.25" - "5";
+                console.log(weight_cost);
+            }
+
             var distance = result.routes[0].legs[0].distance;
             var total_fair = distance*10;
             $(".info").html("<div class='alert alert-success row'><strong>Blue Collar city</strong>  " + document.getElementById('city').value+
@@ -132,7 +157,8 @@ function calcRoute() {
                 ".<br/><strong>Email</strong>  " + document.getElementById('customer_email').value + 
                 ".<br/><strong>phone</strong>  " + document.getElementById('customer_phone').value + 
                 ".<br/><strong>Driving distance:</strong>  " + distance.text + 
-                ".<br/><strong>Base Cost:</strong>  " + basePrice + 
+                ".<br/><strong>Base Cost:</strong>  " + basePrice +
+                ".<br/><strong>Weight Cost:</strong>  " + weight_cost + 
                 "</div>");
 
             directionsDisplay.setDirections(result);
