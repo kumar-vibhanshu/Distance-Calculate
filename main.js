@@ -46,6 +46,7 @@ function calcRoute() {
         if (status == google.maps.DirectionsStatus.OK) {
             
             var basePrice;
+            var city = document.getElementById('city').value;
             if (city === 'Reno') {
                 basePrice = 275;
                 //console.log(basePrice);
