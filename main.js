@@ -1,6 +1,5 @@
 var directionsDisplay, directionsService;
 var map;
-var basePrice;
 var london = {
     lat: 51.5,
     lng: -0.1
@@ -45,7 +44,8 @@ function calcRoute() {
 
     directionsService.route(request, function (result, status) {
         if (status == google.maps.DirectionsStatus.OK) {
-
+            
+            var basePrice;
             if (city === 'Reno') {
                 basePrice = 275;
                 //console.log(basePrice);
