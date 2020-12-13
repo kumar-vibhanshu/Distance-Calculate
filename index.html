@@ -7,7 +7,7 @@
     <link rel="stylesheet" media="screen" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css?family=Arvo:400,700" rel="stylesheet">
    
-    <title>Courier Charge Calculator</title>
+    <title>Courier Charge Tracker</title>
       <style type="text/css">
         .req{
           color: red;
@@ -84,7 +84,7 @@
               <div class="col-lg-6">
                 <div class="form-group">
                   <label>No. Of Packages <span class="req">*</span></label>
-                  <input id="package_num" class="form-control" name="package_num" min="1" max="10" type="number" placeholder="" required>
+                  <input id="package_num" class="form-control" min="1" max="10" name="package_num" type="number" placeholder="" required>
                 </div>
               </div>
 
@@ -105,6 +105,7 @@
                       <option value="Same Day">Same Day</option>
                       <option value="Rush">Rush</option>
                       <option value="Next Day">Next Day</option>
+                      <option value="Scheduled">Scheduled</option>
                     </select>
                 </div>
               </div>
@@ -115,7 +116,7 @@
                   <label>Value of goods for insurance <span class="req">*</span></label>
                   <select name="insurance" id="insurance" class="form-control" required>
                     <option value="" selected="selected">Select</option>
-                    <option value="0">$0 to $200</option>
+                    <option value="$0 to $200">$0 to $200</option>
                     <option value="$201 to $400">$201 to $400</option>
                     <option value="$401 to $800">$401 to $800</option>
                     <option value="$801 to $1500">$801 to $1500</option>
@@ -159,7 +160,7 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBnNfxEnrUv-5K57KJ22rfA1mhKnpIi3Yg&libraries=places&callback=initialize" async defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <script src="https://vibhanshumonty.github.io/Distance-Calculate/main.js"></script>
+    <script src="main.js"></script>
 
 
 </body>
