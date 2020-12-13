@@ -45,29 +45,28 @@ function calcRoute() {
     directionsService.route(request, function (result, status) {
         if (status == google.maps.DirectionsStatus.OK) {
             
-
-            //Blue Collar City Base
             var basePrice;
             var city = document.getElementById('city').selectedIndex;
+            
             if (city === 'Reno') {
                 basePrice = 275;
-                console.log(basePrice);
+                //console.log(basePrice);
             } else if (city === 'Palm Springs') {
                 basePrice = 325;
-                console.log(basePrice);
+                //console.log(basePrice);
             } else if (city === 'San Luisobispo') {
                 basePrice = 450;
-                console.log(basePrice);
+                //console.log(basePrice);
             } else if (city === 'Fresno') {
                 basePrice = 650;
-                console.log(basePrice);
+                //console.log(basePrice);
             }else if (city === 'Grand Junction') {
                 basePrice = 650;
-                console.log(basePrice);
+                //console.log(basePrice);
             }else if (city === 'Aspen') {
                 basePrice = 650;
-                console.log(basePrice);
-            }
+                //console.log(basePrice);
+            };
 
             var distance = result.routes[0].legs[0].distance;
             var total_fair = distance*10;
