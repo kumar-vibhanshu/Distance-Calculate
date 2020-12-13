@@ -47,10 +47,18 @@ function calcRoute() {
             
             var basePrice;
             var city = document.getElementById('city').value;
-            
+            var service_level = document.getElementById('service_level').value;
             if (city === 'Reno') {
-                basePrice = "275";
-                console.log(basePrice);
+                if(service_level === 'Same Day'){
+                    basePrice = "18";
+                    console.log(basePrice);
+                }else if(service_level === 'Rush'){
+                    basePrice = "25";
+                    console.log(basePrice);
+                }else if(service_level === 'Next Day'){
+                    basePrice = "15";
+                    console.log(basePrice);
+                } 
             } else if (city === 'Palm Springs') {
                 basePrice = 325;
                 console.log(basePrice);
