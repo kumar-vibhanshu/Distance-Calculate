@@ -1,3 +1,11 @@
+/*
+ * @Author Kumar Vibhanshu <vibhanshumonty@gmail.com>
+ * @Package Courier Charge Tracker via Google map matrix js
+ * visit: https://vibhanshumonty.github.io/Distance-Calculate/
+ */
+
+
+
 var directionsDisplay, directionsService;
 var map;
 var london = {
