@@ -189,7 +189,7 @@ function calcRoute() {
             var insurance = document.getElementById('insurance').value;
             
             if(insurance === "$0 to $200"){
-                insurance_cost = "Included";
+                insurance_cost = "0";
                 console.log(insurance_cost);
             }else if(insurance === "$201 to $400"){
                 insurance_cost = "5";
@@ -212,7 +212,7 @@ function calcRoute() {
             var subtotal = ((basePrice*"1") + (weight_cost*"1") + (package_extra_cost*"1") + (insurance_cost*"1"));
             console.log(subtotal);
 
-            var grand_total = ((basePrice*"1") + (weight_cost*"1") + (package_extra_cost*"1") + (insurance_cost*"1"));
+            var grand_total = ((basePrice*"1") + (weight_cost*"1") + (package_extra_cost*"1") + (insurance_cost*"1") - (mileage_credit*"1"));
             console.log(grand_total);
 
             $(".info").html("<div class='alert alert-success row'><strong>Blue Collar city</strong>  " + document.getElementById('city').value+
@@ -236,6 +236,7 @@ function calcRoute() {
 
 
                 ".<br/><br/><hr><strong>Driving distance:</strong>  " + distance.text + 
+
 
                 ".<br<br/><hr/><strong>Total:</strong>  $" + total_fair + 
                 ".<br/><strong>Insurance Cost:</strong>  $" + insurance_cost + 
