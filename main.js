@@ -309,7 +309,5 @@ function calcRoute() {
         }
 
 
-    });
-
-    
+    });   
 }
