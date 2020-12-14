@@ -51,6 +51,7 @@ function calcRoute() {
         unitSystem: google.maps.UnitSystem.METRIC
     }
 
+
     directionsService.route(request, function (result, status) {
         if (status == google.maps.DirectionsStatus.OK) {
             
@@ -66,122 +67,122 @@ function calcRoute() {
             if (city === 'Reno') {
                 if(service_level === 'Same Day'){
                     basePrice = "18";
-                    console.log(basePrice);
+                     
                     distancecost = distancemiles * "1.20";
                     mileage_credit = "8" * "1.20";
-                    console.log(mileage_credit);
+                     
                 }else if(service_level === 'Rush'){
                     basePrice = "25";
-                    console.log(basePrice);
+                     
                     distancecost = distancemiles * "1.75";
                     mileage_credit = "8" * "1.75";
-                    console.log(mileage_credit);
+                     
                 }else if(service_level === 'Next Day'){
                     basePrice = "15";
-                    console.log(basePrice);
+                     
                     distancecost = distancemiles * "1";
                     mileage_credit = "8" * "1";
-                    console.log(mileage_credit);
+                     
                 } 
             } else if (city === 'Palm Springs') {
                 if(service_level === 'Same Day'){
                     basePrice = "20";
-                    console.log(basePrice);
+                     
                     distancecost = distancemiles * "1.20";
                     mileage_credit = "8" * "1.20";
-                    console.log(mileage_credit);
+                     
                 }else if(service_level === 'Rush'){
                     basePrice = "30";
-                    console.log(basePrice);
+                     
                     distancecost = distancemiles * "1.75";
                     mileage_credit = "8" * "1.75";
-                    console.log(mileage_credit);
+                     
                 }else if(service_level === 'Next Day'){
                     basePrice = "17";
-                    console.log(basePrice);
+                     
                     distancecost = distancemiles * "1";
                     mileage_credit = "8" * "1";
-                    console.log(mileage_credit);
+                     
                 }
             } else if (city === 'San Luisobispo') {
                 if(service_level === 'Same Day'){
                     basePrice = "20";
-                    console.log(basePrice);
+                     
                     distancecost = distancemiles * "1.20";
                     mileage_credit = "8" * "1.20";
-                    console.log(mileage_credit);
+                     
                 }else if(service_level === 'Rush'){
                     basePrice = "35";
-                    console.log(basePrice);
+                     
                     distancecost = distancemiles * "1.75";
                     mileage_credit = "8" * "1.75";
-                    console.log(mileage_credit);
+                     
                 }else if(service_level === 'Next Day'){
                     basePrice = "16";
-                    console.log(basePrice);
+                     
                     distancecost = distancemiles * "1";
                     mileage_credit = "8" * "1";
-                    console.log(mileage_credit);
+                     
                 }
             } else if (city === 'Fresno') {
                 if(service_level === 'Same Day'){
                     basePrice = "20";
-                    console.log(basePrice);
+                     
                     distancecost = distancemiles * "1.20";
                     mileage_credit = "8" * "1.20";
-                    console.log(mileage_credit);
+                     
                 }else if(service_level === 'Rush'){
                     basePrice = "30";
-                    console.log(basePrice);
+                     
                     distancecost = distancemiles * "1.75";
                     mileage_credit = "8" * "1.75";
-                    console.log(mileage_credit);
+                     
                 }else if(service_level === 'Next Day'){
                     basePrice = "16";
-                    console.log(basePrice);
+                     
                     distancecost = distancemiles * "1";
                     mileage_credit = "8" * "1";
-                    console.log(mileage_credit);
+                     
                 }
             }else if (city === 'Grand Junction') {
                 if(service_level === 'Same Day'){
                     basePrice = "20";
-                    console.log(basePrice);
+                     
                     distancecost = distancemiles * "1.20";
                     mileage_credit = "8" * "1.20";
-                    console.log(mileage_credit);
+                     
                 }else if(service_level === 'Rush'){
                     basePrice = "35";
-                    console.log(basePrice);
+                     
                     distancecost = distancemiles * "1.75";
                     mileage_credit = "8" * "1.75";
-                    console.log(mileage_credit);
+                     
                 }else if(service_level === 'Next Day'){
                     basePrice = "16";
-                    console.log(basePrice);
+                     
                     distancecost = distancemiles * "1";
                     mileage_credit = "8" * "1";
-                    console.log(mileage_credit);
+                     
                 }
             }else if (city === 'Aspen') {
                 if(service_level === 'Same Day'){
                     basePrice = "20";
-                    console.log(basePrice);
+                     
                     distancecost = distancemiles * "1.20";
                     mileage_credit = "8" * "1.20";
-                    console.log(mileage_credit);
+                     
                 }else if(service_level === 'Rush'){
                     basePrice = "40";
-                    console.log(basePrice);
+                     
                     distancecost = distancemiles * "1.75";
                     mileage_credit = "8" * "1.75";
-                    console.log(mileage_credit);
+                     
                 }else if(service_level === 'Next Day'){
                     basePrice = "20";
-                    console.log(basePrice);
+                     
                     distancecost = distancemiles * "1";
                     mileage_credit = "8" * "1";
-                    console.log(mileage_credit);
+                     
                 }
             };
 
@@ -213,19 +214,19 @@ function calcRoute() {
               }
 
             
-            //Weight cost
+            //Package Weight cost
             var weight_cost;
             var package_weight = document.getElementById('package_weight').value;
             
             if(package_weight<="20"){
                 weight_cost = "0";
-                console.log(weight_cost);
             }else{
-                weight_cost = package_weight * "0.25" - "5";
-                console.log(weight_cost);
+                weight_cost = (package_weight * "0.25") - "5";
+                
             };
+            
 
-            //Package Extra cost
+            //Package Quantity Extra cost
             var package_extra_cost;
             var package_num = document.getElementById('package_num').value;
             
@@ -309,5 +310,7 @@ function calcRoute() {
         }
 
 
-    });   
+    });
+
+    
 }
