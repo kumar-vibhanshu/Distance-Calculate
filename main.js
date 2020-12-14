@@ -38,6 +38,7 @@ function initialize() {
 
 submitBtn.on('click', function () {
     calcRoute();
+
 })
 
 
@@ -269,7 +270,8 @@ function calcRoute() {
                 ".<br/><strong>Mileage Credit:</strong>  $" + mileage_credit + 
                 ".<br/><strong>Grand Total:</strong>  $" + grand_total + 
                 "</div>");
-
+            $(".container").hide();
+            $(".info").show();
             directionsDisplay.setDirections(result);
         } else {
             directionsDisplay.setDirections({
@@ -279,5 +281,8 @@ function calcRoute() {
             $(".info").html("<div class='alert alert-warning'><strong>Could not retrieve driving distance.</strong></div>");
         }
 
+
     });
+
+    
 }
