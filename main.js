@@ -186,6 +186,19 @@ function calcRoute() {
             };
 
             //Weight cost
+            const week_of_day_arr = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+            var dateString = document.getElementById('collection_date').value
+            var day = week_of_day_arr[new Date(dateString).getDay()];
+            if(day === "Sunday" || day === "Saturday"){
+                day_cost = "10";
+                
+            }else{
+                day_cost = "0";
+                
+            };
+            
+            
+            //Weight cost
             var weight_cost;
             var package_weight = document.getElementById('package_weight').value;
             
@@ -230,18 +243,17 @@ function calcRoute() {
                 console.log(insurance_cost);
             };
 
-            var total_fair = ((basePrice*"1") + (weight_cost*"1") + (package_extra_cost*"1") + (distancecost*"1"));
+            var total_fair = ((basePrice*"1") + (day_cost*"1") + (weight_cost*"1") + (package_extra_cost*"1") + (distancecost*"1"));
             console.log(total_fair);
 
-            var subtotal = ((basePrice*"1") + (weight_cost*"1") + (package_extra_cost*"1") + (distancecost*"1") + (insurance_cost*"1"));
+            var subtotal = ((basePrice*"1") + (day_cost*"1") + (weight_cost*"1") + (package_extra_cost*"1") + (distancecost*"1") + (insurance_cost*"1"));
             console.log(subtotal);
 
-            var grand_total = ((basePrice*"1") + (weight_cost*"1") + (package_extra_cost*"1") + (distancecost*"1") + (insurance_cost*"1") - (mileage_credit*"1"));
+            var grand_total = ((basePrice*"1") + (day_cost*"1") + (weight_cost*"1") + (package_extra_cost*"1") + (distancecost*"1") + (insurance_cost*"1") - (mileage_credit*"1"));
             console.log(grand_total);
 
             $(".info").html("<div class='alert alert-success row'><div class='col-lg-7'><strong>Blue Collar city</strong>  " + document.getElementById('city').value+
                 ".<br/><strong>Collection Date & Time</strong>  "+ document.getElementById('collection_date').value +"&nbsp;" + document.getElementById('collection_time').value + 
-
                 ".<br/><strong>From:</strong>  "+ document.getElementById('from').value + 
                 ".<br/><strong>To:</strong>  " + document.getElementById('to').value + 
                 ".<br/><strong>Weight of package:</strong>  "+ document.getElementById('package_weight').value + 
@@ -255,6 +267,9 @@ function calcRoute() {
                 
                 
                 "</div><div class='col-lg-5'><h3>Result</h3><br/><strong>Base Cost:</strong>  $" + basePrice +
+                ".<br/><strong>Additional Cost (Time Based):</strong>  $" + weight_cost + 
+                ".<br/><strong>Additional Cost (Day Based):</strong>  $" + day_cost + 
+                ".<br/><strong>Weight Cost:</strong>  $" + weight_cost + 
                 ".<br/><strong>Weight Cost:</strong>  $" + weight_cost + 
                 ".<br/><strong>Package Extra Cost:</strong>  $" + package_extra_cost + 
 
