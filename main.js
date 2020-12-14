@@ -55,7 +55,7 @@ function calcRoute() {
         if (status == google.maps.DirectionsStatus.OK) {
             
             var distance = result.routes[0].legs[0].distance;
-            var distancemiles = (distance.text.replace(/\D/g,'')) * "0.621371";
+            var distancemiles = (distance.text.replace(/\D/g,'')) * "0.62";//miles upto two decimal place
 
             //Base price (Collar city / Service Level)
             var basePrice;
