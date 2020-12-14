@@ -239,7 +239,7 @@ function calcRoute() {
             var grand_total = ((basePrice*"1") + (weight_cost*"1") + (package_extra_cost*"1") + (distancecost*"1") + (insurance_cost*"1") - (mileage_credit*"1"));
             console.log(grand_total);
 
-            $(".info").html("<div class='alert alert-success row'><strong>Blue Collar city</strong>  " + document.getElementById('city').value+
+            $(".info").html("<div class='alert alert-success row'><div class='col-lg-7'><strong>Blue Collar city</strong>  " + document.getElementById('city').value+
                 ".<br/><strong>Collection Date & Time</strong>  "+ document.getElementById('collection_date').value +"&nbsp;" + document.getElementById('collection_time').value + 
 
                 ".<br/><strong>From:</strong>  "+ document.getElementById('from').value + 
@@ -253,24 +253,23 @@ function calcRoute() {
                 ".<br/><strong>Email</strong>  " + document.getElementById('customer_email').value + 
                 ".<br/><strong>phone</strong>  " + document.getElementById('customer_phone').value + 
                 
-
-                ".<br/><br/><hr><strong>Base Cost:</strong>  $" + basePrice +
+                
+                "</div><div class='col-lg-5'><h3>Result</h3><br/><strong>Base Cost:</strong>  $" + basePrice +
                 ".<br/><strong>Weight Cost:</strong>  $" + weight_cost + 
                 ".<br/><strong>Package Extra Cost:</strong>  $" + package_extra_cost + 
 
 
-                ".<br/><br/><hr><strong>Distance:</strong>  " + distance.text + 
-                ".<br/><br/><hr><strong>Distance:</strong>  " + distancemiles + 
+                ".<br/><br/><strong>Distance:</strong>  " + distance.text + 
+                ".<br/><br/><strong>Distance:</strong>  " + distancemiles + 
                 "miles.<br/><strong>Distance Cost:</strong>  $" + distancecost + 
 
 
-                ".<br<br/><hr/><strong>Total:</strong>  $" + total_fair + 
+                ".<br><br/><strong>Total:</strong>  $" + total_fair + 
                 ".<br/><strong>Insurance Cost:</strong>  $" + insurance_cost + 
                 ".<br/><strong>Sub Total:</strong>  $" + subtotal + 
                 ".<br/><strong>Mileage Credit:</strong>  $" + mileage_credit + 
                 ".<br/><strong>Grand Total:</strong>  $" + grand_total + 
-                
-                "</div>");
+                "</div></div>");
             $(".container").hide();
             $(".info").show();
             directionsDisplay.setDirections(result);

@@ -7,7 +7,7 @@
     <link rel="stylesheet" media="screen" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css?family=Arvo:400,700" rel="stylesheet">
    
-    <title>Distance Between Cities</title>
+    <title>Courier Charge Calculator</title>
       <style type="text/css">
         .req{
           color: red;
@@ -20,7 +20,8 @@
     <div class="container">
         <center><h2>GET A QUOTE FREE</h2></center><hr><br>
             <form class="form-info">
-              <!-- Choose Blue Collar City -->
+              <div class="row">
+                <!-- Choose Blue Collar City -->
                 <div class="col-lg-6">
                     <div class="form-group">
                       <label>Choose Blue Collar City <span class="req">*</span></label>
@@ -35,8 +36,10 @@
                       </select>
                     </div>
                 </div>
-            
-              <!-- Choose collection date -->
+              </div>
+
+              <div class="row">
+                <!-- Choose collection date -->
                 <div class="col-lg-6">
                     <div class="form-group">
                       <label>Collection Date <span class="req">*</span></label>
@@ -45,7 +48,7 @@
                     </div>
                 </div>
               
-              <!-- Choose collection time -->
+                <!-- Choose collection time -->
                 <div class="col-lg-6">
                     <div class="form-group">
                       <label>Collection Time <span class="req">*</span></label>
@@ -61,17 +64,14 @@
                     </div>
                 </div>
                 
-              <!-- Choose Delivery Address -->
+                <!-- Choose Delivery Address -->
                 <div class="col-lg-6">
                     <div class="form-group">
                         <label>To: <span class="req">*</span></label>
                         <input type="text" class="form-control" id="to" required placeholder="Destination">
                     </div>
                 </div>
-              
-                
-
-              <!-- Weight of Packages -->
+                <!-- Weight of Packages -->
                 <div class="col-lg-6">
                     <div class="form-group">
                       <label>Weight of Packages <span class="req">*</span></label>
@@ -79,61 +79,62 @@
                     </div>
                 </div>
 
-
-              <!-- No. Of Packages -->
-              <div class="col-lg-6">
-                <div class="form-group">
-                  <label>No. Of Packages <span class="req">*</span></label>
-                  <input id="package_num" class="form-control" min="1" max="10" name="package_num" type="number" placeholder="" required>
+                <!-- No. Of Packages -->
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label>No. Of Packages <span class="req">*</span></label>
+                    <input id="package_num" class="form-control" min="1" max="10" name="package_num" type="number" placeholder="" required>
+                  </div>
                 </div>
-              </div>
 
-              <!-- Package Content -->
-              <div class="col-lg-6">
-                <div class="form-group">
-                  <label>Package Content <span class="req">*</span></label>
-                  <textarea name="package_content" id="package_content" class="form-control" required></textarea>
+                <!-- Package Content -->
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label>Package Content <span class="req">*</span></label>
+                    <input type="text" name="package_content" id="package_content" class="form-control" required>
+                  </div>
                 </div>
-              </div>
 
-              <!-- Service Level -->
-              <div class="col-lg-6">
-                <div class="form-group">
-                  <label>Service Level <span class="req">*</span></label>
-                    <select name="service_level" id="service_level" class="form-control" required>
+                <!-- Service Level -->
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label>Service Level <span class="req">*</span></label>
+                      <select name="service_level" id="service_level" class="form-control" required>
+                        <option value="" selected="selected">Select</option>
+                        <option value="Same Day">Same Day</option>
+                        <option value="Rush">Rush</option>
+                        <option value="Next Day">Next Day</option>
+                        <option value="Scheduled">Scheduled</option>
+                      </select>
+                  </div>
+                </div>
+
+                <!-- Value of goods for insurance  -->
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label>Value of goods for insurance <span class="req">*</span></label>
+                    <select name="insurance" id="insurance" class="form-control" required>
                       <option value="" selected="selected">Select</option>
-                      <option value="Same Day">Same Day</option>
-                      <option value="Rush">Rush</option>
-                      <option value="Next Day">Next Day</option>
-                      <option value="Scheduled">Scheduled</option>
+                      <option value="$0 to $200">$0 to $200</option>
+                      <option value="$201 to $400">$201 to $400</option>
+                      <option value="$401 to $800">$401 to $800</option>
+                      <option value="$801 to $1500">$801 to $1500</option>
+                      <option value="$1501 to $3000">$1501 to $3000</option>
                     </select>
+                  </div>
                 </div>
               </div>
 
-              <!-- Value of goods for insurance  -->
-              <div class="col-lg-6">
-                <div class="form-group">
-                  <label>Value of goods for insurance <span class="req">*</span></label>
-                  <select name="insurance" id="insurance" class="form-control" required>
-                    <option value="" selected="selected">Select</option>
-                    <option value="$0 to $200">$0 to $200</option>
-                    <option value="$201 to $400">$201 to $400</option>
-                    <option value="$401 to $800">$401 to $800</option>
-                    <option value="$801 to $1500">$801 to $1500</option>
-                    <option value="$1501 to $3000">$1501 to $3000</option>
-                  </select>
+              <div class="row">
+                <!-- customer_name -->
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label>Name <span class="req">*</span></label>
+                    <input id="customer_name" class="form-control" name="customer_name" type="text" placeholder="" required>
+                  </div>
                 </div>
-              </div>
 
-              <!-- customer_name -->
-              <div class="col-lg-6">
-                <div class="form-group">
-                  <label>Name <span class="req">*</span></label>
-                  <input id="customer_name" class="form-control" name="customer_name" type="text" placeholder="" required>
-                </div>
-              </div>
-
-              <!-- customer_email -->
+                <!-- customer_email -->
                 <div class="col-lg-6">
                     <div class="form-group">
                       <label>Email <span class="req">*</span></label>
@@ -141,15 +142,14 @@
                     </div>
                 </div>
 
-              <!-- customer_phone -->
+                <!-- customer_phone -->
                 <div class="col-lg-6">
                     <div class="form-group">
                       <label>Phone <span class="req">*</span></label>
                       <input id="customer_phone" class="form-control" name="customer_phone" type="text" placeholder="" required>
                     </div>
                 </div>
-
-                
+              </div>
             </form>
             <div class="col-xs-12">
                 <button class="btn btn-info btn-lg">Submit</button>
