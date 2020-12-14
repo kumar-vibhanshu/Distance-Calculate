@@ -255,6 +255,8 @@ function calcRoute() {
                 
                 
                 "</div><div class='col-lg-5'><h3>Result</h3><br/><strong>Base Cost:</strong>  $" + basePrice +
+                ".<br/><strong>Additional Fee<span class='small'>Time Based</span>:</strong>  $" + weight_cost + 
+                ".<br/><strong>Additional Fee<span class='small'>Day Based</span>:</strong>  $" + weight_cost + 
                 ".<br/><strong>Weight Cost:</strong>  $" + weight_cost + 
                 ".<br/><strong>Package Extra Cost:</strong>  $" + package_extra_cost + 
 
