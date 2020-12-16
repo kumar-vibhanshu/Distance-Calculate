@@ -1,3 +1,9 @@
+<!-- /*
+ * @Author Kumar Vibhanshu <vibhanshumonty@gmail.com>
+ * @Package Courier Charge Tracker via Google map matrix js
+ * visit: https://vibhanshumonty.github.io/Distance-Calculate/
+*/ -->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,7 +25,7 @@
 <div class="info" id="map"></div>
     <div class="container">
         <center><h2>GET A QUOTE FREE</h2></center><hr><br>
-            <form class="form-info">
+        <form class="form-info" action="display.php" method="POST">
               <div class="row">
                 <!-- Choose Blue Collar City -->
                 <div class="col-lg-6">
@@ -60,7 +66,7 @@
                 <div class="col-lg-6">
                     <div class="form-group">
                       <label>Pickup Address <span class="req">*</span></label>
-                      <input type="text" class="form-control" id="from" required placeholder="Origin">  
+                      <input type="text" class="form-control" id="from" name="from" required placeholder="Origin">  
                     </div>
                 </div>
                 
@@ -68,7 +74,7 @@
                 <div class="col-lg-6">
                     <div class="form-group">
                         <label>To: <span class="req">*</span></label>
-                        <input type="text" class="form-control" id="to" required placeholder="Destination">
+                        <input type="text" class="form-control" id="to" name="to" required placeholder="Destination">
                     </div>
                 </div>
                 <!-- Weight of Packages -->
@@ -150,19 +156,42 @@
                     </div>
                 </div>
               </div>
-            </form>
-            <div class="col-xs-12">
-                <button class="btn btn-info btn-lg">Submit</button>
-            </div>
-            
+
+              <div class="col-xs-12">
+                <input type="submit" name="Estimate" class="btn btn-primary btn-sm" value="Estimate">
+              </div>
+        </form>            
     </div>
 
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBnNfxEnrUv-5K57KJ22rfA1mhKnpIi3Yg&libraries=places&callback=initialize" async defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <script src="main.js"></script>
+    
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Google Maps JavaScript library -->
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=AIzaSyBnNfxEnrUv-5K57KJ22rfA1mhKnpIi3Yg"></script>
+    <script>
+        var fromplace = 'from';
+        var toplace = 'to';
 
+        $(document).ready(function () {
+         var autocomplete;
+         autocomplete = new google.maps.places.Autocomplete((document.getElementById(fromplace)), {
+          types: ['geocode'],
+         });
+         
+         google.maps.event.addListener(autocomplete, 'place_changed', function () {
+          var near_place = autocomplete.getPlace();
+         });
 
+         var autocomplete1;
+         autocomplete1 = new google.maps.places.Autocomplete((document.getElementById(toplace)), {
+          types: ['geocode'],
+         });
+         
+         google.maps.event.addListener(autocomplete1, 'place_changed', function () {
+          var near_place1 = autocomplete1.getPlace();
+         });
+        });
+    </script>
 </body>
 
 </html>
