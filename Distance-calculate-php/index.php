@@ -110,7 +110,7 @@
                         <option value="Same Day">Same Day</option>
                         <option value="Rush">Rush</option>
                         <option value="Next Day">Next Day</option>
-                        <option value="Scheduled">Scheduled</option>
+                        
                       </select>
                   </div>
                 </div>
