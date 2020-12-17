@@ -153,22 +153,30 @@ if(isset($_POST['Estimate'])){
             $basePrice = "15";
             $distancecost = $total_distance * "1";
             $mileage_credit = "8" * "1";
-        } 
+        }else if($service_level === 'Schedule'){
+            $basePrice = "Contact Us";
+            $distancecost = "Contact Us";
+            $mileage_credit = "0";
+        }  
     }else if ($collarcity === 'Palm Springs') {
         if($service_level === 'Same Day'){
-            $basePrice = "20";
+            $basePrice = "$ 20";
             $distancecost = $total_distance * "1.20";
             $mileage_credit = "8" * "1.20";
             }
         else if($service_level === 'Rush'){
-            $basePrice = "30";
+            $basePrice = "$ 30";
             $distancecost = $total_distance * "1.75";
             $mileage_credit = "8" * "1.75";
         }else if($service_level === 'Next Day'){
-            $basePrice = "17";
+            $basePrice = "$ 17";
             $distancecost = $total_distance * "1";
             $mileage_credit = "8" * "1";
-        }
+        }else if($service_level === 'Schedule'){
+            $basePrice = "Contact Us";
+            $distancecost = "Contact Us";
+            $mileage_credit = "0";
+        } 
     }else if ($collarcity === 'San Luisobispo') {
         if($service_level === 'Same Day'){
             $basePrice = "20";
@@ -182,7 +190,11 @@ if(isset($_POST['Estimate'])){
             $basePrice = "16";
             $distancecost = $total_distance * "1";
             $mileage_credit = "8" * "1";
-        }
+        }else if($service_level === 'Schedule'){
+            $basePrice = "Contact Us";
+            $distancecost = "Contact Us";
+            $mileage_credit = "0";
+        } 
     } else if ($collarcity === 'Fresno') {
         if($service_level === 'Same Day'){
             $basePrice = "20";
@@ -196,7 +208,11 @@ if(isset($_POST['Estimate'])){
             $basePrice = "16";
             $distancecost = $total_distance * "1";
             $mileage_credit = "8" * "1";
-        }
+        }else if($service_level === 'Schedule'){
+            $basePrice = "Contact Us";
+            $distancecost = "Contact Us";
+            $mileage_credit = "0";
+        } 
     }else if ($collarcity === 'Grand Junction') {
         if($service_level === 'Same Day'){
             $basePrice = "20";
@@ -210,7 +226,11 @@ if(isset($_POST['Estimate'])){
             $basePrice = "16";
             $distancecost = $total_distance * "1";
             $mileage_credit = "8" * "1";
-        }
+        }else if($service_level === 'Schedule'){
+            $basePrice = "Contact Us";
+            $distancecost = "Contact Us";
+            $mileage_credit = "0";
+        } 
     }else if ($collarcity === 'Aspen') {
         if($service_level === 'Same Day'){
             $basePrice = "20";
@@ -224,7 +244,11 @@ if(isset($_POST['Estimate'])){
             $basePrice = "20";
             $distancecost = $total_distance * "1";
             $mileage_credit = "8" * "1";
-        }
+        }else if($service_level === 'Schedule'){
+            $basePrice = "Contact Us";
+            $distancecost = "Contact Us";
+            $mileage_credit = "0";
+        } 
     }
 
     //Additional cost day based
@@ -277,7 +301,7 @@ if(isset($_POST['Estimate'])){
         }
     
     // Total fair
-    $total_fair = $basePrice + $time_cost + $day_cost + $weight_cost + $package_extra_cost + $distancecost;
+    $total_fair = (int)$basePrice + $time_cost + $day_cost + $weight_cost + $package_extra_cost + (int)$distancecost;
 
     // Sub total fair
     $sub_total = $total_fair + $insurance_cost ;
@@ -392,7 +416,7 @@ if(isset($_POST['Estimate'])){
                                         <tbody>
                                           <tr>
                                             <td>Base Cost</td>
-                                            <td><?php echo "$",$basePrice;?></td>
+                                            <td><?php echo $basePrice;?></td>
                                           </tr>
                                           <tr>
                                             <td>Additional Fee<br>(Time Based)</td>
@@ -426,7 +450,15 @@ if(isset($_POST['Estimate'])){
                                           <tr>
                                             <tr>
                                             <td>Distance Cost</td>
-                                            <td><?php echo "$",$distancecost;?></td>
+                                            <td>
+                                                <?php if($service_level === "Schedule"){
+                                                    echo "Contact Us";
+                                                    }else{
+                                                        echo "$", $distancecost;
+                                                    }
+                                                ?>
+                                                
+                                            </td>
                                           </tr>
                                           <tr>
                                             <td>Total </td>
