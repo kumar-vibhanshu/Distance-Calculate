@@ -123,10 +123,14 @@ if(isset($_POST['Estimate'])){
     $addressTo   = $to;
 
     // Get distance collar city to pickup address
-    $distancecollar = getDistancecollar($addresscollar, $addressFrom, "");
+    $distancecollar = (int)getDistancecollar($addresscollar, $addressFrom, "");
+  
+// $int = (int) filter_var($string, FILTER_SANITIZE_NUMBER_INT);  
 
     // Get distance pickup to delivery address
-    $distance = getDistance($addressFrom, $addressTo, "");
+    $distance = (int)getDistance($addressFrom, $addressTo, "");
+
+
 
     // Total distance
     $total_distance = (($distance) + ($distancecollar)) ;
@@ -260,15 +264,15 @@ if(isset($_POST['Estimate'])){
 
     //Insurance cost
     $insurance_cost;
-    if($insurance = "$0 to $200"){
+    if($insurance === "$0 to $200"){
         $insurance_cost = "0";
-        }else if($insurance ="$201 to $400"){
+        }else if($insurance ==="$201 to $400"){
             $insurance_cost = "5";
-        }else if($insurance = "$401 to $800"){
+        }else if($insurance === "$401 to $800"){
             $insurance_cost = "10";
-        }else if($insurance = "$801 to $1500"){
+        }else if($insurance === "$801 to $1500"){
             $insurance_cost = "20";
-        }else if($insurance = "$1501 to $3000"){
+        }else if($insurance === "$1501 to $3000"){
             $insurance_cost = "30";
         }
     
@@ -344,7 +348,7 @@ if(isset($_POST['Estimate'])){
                                         </div>
                                         <div class="col-lg-6 col-md-6 mb-2">
                                             <div class="card">
-                                              <div class="card-body">Service Level<br/><?php echo $from;?></div>
+                                              <div class="card-body">Service Level<br/><?php echo $service_level;?></div>
                                             </div>
                                         </div>
                                         <div class="col-lg-6 col-md-6 mb-2">
@@ -378,7 +382,7 @@ if(isset($_POST['Estimate'])){
                             <div class="card shadow mb-4">
                                 <!-- Card Header - Dropdown -->
                                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">RESULT's</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">Result</h6>
                                     
                                 </div>
                                 <!-- Card Body -->
@@ -408,16 +412,16 @@ if(isset($_POST['Estimate'])){
                                           </tr>
                                           <tr>
                                             <td>Distance Office to Shipper</td>
-                                            <td><?php echo $distancecollar;?></td>
+                                            <td><?php echo $distancecollar," Miles";?></td>
                                           </tr>
                                           <tr>
                                             <td>+ Distance Shipper to Consignee</td>
-                                            <td><?php echo $distance;?></td>
+                                            <td><?php echo $distance," Miles";?></td>
                                           </tr>
                                           
                                           <tr>
                                             <td>= Total Distance</td>
-                                            <td><?php echo $total_distance," miles";?></td>
+                                            <td><?php echo $total_distance," Miles";?></td>
                                           </tr>
                                           <tr>
                                             <tr>
